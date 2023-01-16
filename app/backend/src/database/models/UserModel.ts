@@ -7,7 +7,6 @@ export default class Users extends Model {
   declare role: string;
   declare email: string;
   declare password: string;
-  userModel = new Users();
 }
 
 Users.init({
@@ -37,4 +36,5 @@ Users.init({
   sequelize: db,
   timestamps: false,
   modelName: 'users',
+  underscored: true,
 });

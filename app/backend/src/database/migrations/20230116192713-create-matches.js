@@ -2,32 +2,36 @@
 
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('users', {
+        await queryInterface.createTable('matches', {
             id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
               },
-              username: {
+              home_team: {
                 type: Sequelize.STRING,
                 allowNull: false,
               },
-              role: {
+              away_team: {
                 type: Sequelize.STRING,
                 allowNull: false,
               },
-              email: {
+              home_team_goals: {
                 type: Sequelize.STRING,
                 allowNull: false,
               },
-              password: {
+              away_team_goals: {
                 type: Sequelize.STRING,
                 allowNull: false,
               },
+              in_progress: {
+                type: Sequelize.BOOLEAN,
+                allowNull: false,
+              }
         })
     },
     down: async(queryInterface) => {
-        await queryInterface.dropTable('users')
+        await queryInterface.dropTable('matches')
     }
 } 
