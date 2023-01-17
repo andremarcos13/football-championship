@@ -15,4 +15,13 @@ export default class UserController {
       return res.status(error.statusCode).json({ message: error.message });
     }
   };
+
+  tokenValidate = (req: Request, res: Response) => {
+    const { authorization } = req.headers;
+    console.log('autho', authorization);
+
+    const { role } = this._userService.validateUserRole(authorization as string);
+    console.log('role', role);
+    return res.status(200).json({ role });
+  };
 }

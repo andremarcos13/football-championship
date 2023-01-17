@@ -11,5 +11,5 @@ const userService = new UserService(jwt);
 const userController = new UserController(userService);
 
 router.post('/', userEmailPasswordValidate, (req, res) => userController.login(req, res));
-
+router.get('/validate', userController.tokenValidate);
 export default router;

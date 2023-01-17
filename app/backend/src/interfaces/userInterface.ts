@@ -5,8 +5,3 @@ export interface IUser {
   role: string;
   password?: string;
 }
-
-export interface ILogin {
-  username: string;
-  password: string;
-}

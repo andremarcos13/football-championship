@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { sign, verify } from 'jsonwebtoken';
 import ErrorException from './Error';
-import UserModel from '../database/models/UserModel';
+// import UserModel from '../database/models/UserModel';
 import { IUser } from '../interfaces/userInterface';
 
 export default class Jwt {
@@ -15,9 +15,9 @@ export default class Jwt {
     return token;
   }
 
-  validateToken(token: string):UserModel {
+  validateToken(token: string):IUser {
     try {
-      const payload = verify(token, this._secret) as UserModel;
+      const payload = verify(token, this._secret) as IUser;
       return payload;
     } catch (error) {
       throw new ErrorException(401, 'Token not valid');
