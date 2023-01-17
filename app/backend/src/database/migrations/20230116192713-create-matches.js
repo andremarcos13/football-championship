@@ -10,19 +10,19 @@ module.exports = {
                 autoIncrement: true,
               },
               home_team: {
-                type: Sequelize.STRING,
+                type: Sequelize.INTEGER,
                 allowNull: false,
               },
               away_team: {
-                type: Sequelize.STRING,
+                type: Sequelize.INTEGER,
                 allowNull: false,
               },
               home_team_goals: {
-                type: Sequelize.STRING,
+                type: Sequelize.INTEGER,
                 allowNull: false,
               },
               away_team_goals: {
-                type: Sequelize.STRING,
+                type: Sequelize.INTEGER,
                 allowNull: false,
               },
               in_progress: {

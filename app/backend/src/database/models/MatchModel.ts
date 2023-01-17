@@ -1,13 +1,13 @@
-import { Model, STRING, INTEGER, BOOLEAN } from 'sequelize';
+import { Model, INTEGER, BOOLEAN } from 'sequelize';
 import TeamModel from './TeamModel';
 import db from '.';
 
 export default class Matches extends Model {
   declare id: number;
-  declare homeTeam: string;
-  declare awayTeam: string;
-  declare homeTeamGoals: string;
-  declare awayTeamGoals: string;
+  declare homeTeam: number;
+  declare awayTeam: number;
+  declare homeTeamGoals: number;
+  declare awayTeamGoals: number;
   declare inProgress: boolean;
 }
 
@@ -19,19 +19,19 @@ Matches.init({
     autoIncrement: true,
   },
   homeTeam: {
-    type: STRING,
+    type: INTEGER,
     allowNull: false,
   },
   awayTeam: {
-    type: STRING,
+    type: INTEGER,
     allowNull: false,
   },
   homeTeamGoals: {
-    type: STRING,
+    type: INTEGER,
     allowNull: false,
   },
   awayTeamGoals: {
-    type: STRING,
+    type: INTEGER,
     allowNull: false,
   },
   inProgress: {
