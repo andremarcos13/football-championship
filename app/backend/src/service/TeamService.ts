@@ -5,8 +5,6 @@ import ErrorException from '../utils/Error';
 export default class TeamService {
   getAll = async ():Promise<ITeam[]> => {
     const teams = await Teams.findAll();
-    console.log('teams', teams);
-
     return teams;
   };
 
