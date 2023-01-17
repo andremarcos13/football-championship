@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import UserService from '../service/UserService';
 import UserController from '../controller/UserController';
+import userEmailPasswordValidate from '../middlewares/validations';
 import Jwt from '../utils/Jwt';
 
 const router = Router();
@@ -8,8 +9,7 @@ const router = Router();
 const jwt = new Jwt();
 const userService = new UserService(jwt);
 const userController = new UserController(userService);
-console.log('vou fzer o post no cu do jc');
 
-router.post('/', userController.login);
+router.post('/', userEmailPasswordValidate, (req, res) => userController.login(req, res));
 
 export default router;
