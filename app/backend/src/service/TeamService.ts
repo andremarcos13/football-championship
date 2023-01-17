@@ -1,5 +1,6 @@
 import Teams from '../database/models/TeamModel';
 import { ITeam } from '../interfaces/teamInterface';
+import ErrorException from '../utils/Error';
 
 export default class TeamService {
   getAll = async ():Promise<ITeam[]> => {
@@ -7,5 +8,13 @@ export default class TeamService {
     console.log('teams', teams);
 
     return teams;
+  };
+
+  getById = async (id:string):Promise<ITeam> => {
+    const teamId = await Teams.findByPk(id);
+    if (!teamId) {
+      throw new ErrorException(404, 'No team');
+    }
+    return teamId;
   };
 }
