@@ -20,7 +20,7 @@ export default class Jwt {
       const payload = verify(token, this._secret) as IUser;
       return payload;
     } catch (error) {
-      throw new ErrorException(401, 'Token not valid');
+      throw new ErrorException(401, 'Token must be a valid token');
     }
   }
 }

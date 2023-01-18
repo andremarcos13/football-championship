@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import UserService from '../service/UserService';
 import UserController from '../controller/UserController';
-import userEmailPasswordValidate from '../middlewares/validations';
+import { userEmailPasswordValidate } from '../middlewares/validations';
 import Jwt from '../utils/Jwt';
 
 const router = Router();
