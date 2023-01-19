@@ -8,3 +8,7 @@ export interface IMatch {
   teamHome: { teamName: string }
   teamAway: { teamName: string }
 }
+
+export interface IMatchTeamName {
+  teamName: string;
+}

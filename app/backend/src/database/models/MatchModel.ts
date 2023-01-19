@@ -1,6 +1,7 @@
 import { Model, INTEGER, BOOLEAN } from 'sequelize';
 import TeamModel from './TeamModel';
 import db from '.';
+import { IMatchTeamName } from '../../interfaces/matchInterface';
 
 export default class Matches extends Model {
   declare id: number;
@@ -9,6 +10,8 @@ export default class Matches extends Model {
   declare homeTeamGoals: number;
   declare awayTeamGoals: number;
   declare inProgress: boolean;
+  declare teamHome: IMatchTeamName;
+  declare teamAway: IMatchTeamName;
 }
 
 Matches.init({

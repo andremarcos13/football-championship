@@ -4,7 +4,7 @@ import { IMatch } from '../interfaces/matchInterface';
 // import ErrorException from '../utils/Error';
 
 export default class MatchService {
-  private _teamsPlaying = [{
+  public _teamsPlaying = [{
     model: Teams,
     as: 'teamHome',
     attributes: ['teamName'] },
@@ -23,7 +23,6 @@ export default class MatchService {
   findInProgressMatch = async (progress:string) => {
     const allInProgressMatch = await Matches
       .findAll({ where: { inProgress: progress === 'true' }, include: this._teamsPlaying });
-    console.log('testeeeeee', allInProgressMatch);
     return allInProgressMatch;
   };
 
@@ -38,8 +37,7 @@ export default class MatchService {
 
   finishMatch = async (id: number, path: string, body: IMatch) => {
     if (path.includes('finish')) {
-      const [finishedMatch] = await Matches
-        .update({ inProgress: false }, { where: { id } });
+      const [finishedMatch] = await Matches.update({ inProgress: false }, { where: { id } });
       return finishedMatch;
     }
     const { homeTeamGoals, awayTeamGoals } = body;
